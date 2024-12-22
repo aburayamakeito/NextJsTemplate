@@ -1,21 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  font-family: Inter, sans-serif;
+  font-feature-settings:
+  "liga" 1,
+  "calt" 1, /* Contextual Alternates */
+  "dlig" 1, /* Discretionary Ligatures */
+  "ss07" 1, /* fSquare punctuation */
+  "ss08" 1, /* Square quotes */
+  "zero" 1, /* Slashed zero */
+  "tnum" 1, /* Tabular numbers */
+    "cv03" 1, /* Open six */
+    "cv04" 1, /* Open nine */
+    "cv01" 1, /* Alternate one */
+    "cv09", /* Flat-top three */
+    "cv02" 1; /* Open 4 */
 }
-
-@media (prefers-color-scheme: dark) {
+@supports (font-variation-settings: normal) {
+  /* Use variable font if supported */
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    font-family: InterVariable, sans-serif;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.prose-styles {
+  @apply mx-auto prose text-green-500 prose-a:font-semibold prose-a:text-brown-300 hover:prose-a:text-black prose-headings:text-green-900 prose-headings:font-display   prose-blockquote:text-brown-400 prose-code:text-brown-400 prose-strong:text-green-700 prose-img:rounded-xl prose-pre:rounded-xl prose-headings:font-normal;
 }
+
